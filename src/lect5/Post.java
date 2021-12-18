@@ -3,6 +3,8 @@ package lect5;
 import java.time.LocalDateTime;
 
 public class Post {
+    private static int id;
+    private final int post_id;
     private String title;
     private String content;
     private Category category;
@@ -10,22 +12,37 @@ public class Post {
     private LocalDateTime dateAdded;
 
     public Post(String title, String content, Category category, User author) {
+        id ++;
         this.title = title;
         this.content = content;
         this.category = category;
         this.author = author;
         this.dateAdded = LocalDateTime.now();
+        this.post_id = id;
     }
 
     @Override
     public String toString() {
         return "Post{" +
-                "title='" + title + '\'' +
+                "post_id=" + post_id +
+                ", title='" + title + '\'' +
                 ", content='" + content + '\'' +
-                ", category=" + category.getCategoryName() +
+                ", category=" + category +
                 ", author=" + author +
                 ", dateAdded=" + dateAdded +
                 '}';
+    }
+
+    public static int getId() {
+        return id;
+    }
+
+    public static void setId(int id) {
+        Post.id = id;
+    }
+
+    public int getPost_id() {
+        return post_id;
     }
 
     public String getTitle() {
