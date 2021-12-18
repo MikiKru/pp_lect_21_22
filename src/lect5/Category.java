@@ -7,6 +7,10 @@ public enum Category {
 
     private final String categoryName;
 
+    public String getCategoryName() {
+        return categoryName;
+    }
+
     Category(String categoryName) {
         this.categoryName = categoryName;
     }
